@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Macondo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 1s  ease-in;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: gainsboro;
+}
+
+/* Arrows */
+.left-arrow, .right-arrow {
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 0px;
+  outline: 0px;
+  opacity: 0.8;
+  position: absolute;
+  transition: .3s ease;
+}
+.left-arrow:hover, .right-arrow:hover {
+  opacity: 1;
+}
+.left-arrow {
+  background-image: url("../img/assets/svg/slider-prev.svg");
+  top: 50%;
+  margin-top: -16px;
+  left: 16px;
+}
+.right-arrow {
+  background-image: url("../img/assets/svg/slider-next.svg");
+  top: 50%;
+  margin-top: -16px;
+  right: 16px;
+}
+/* Arrows */
+
+/* Top Part */
+.top-part {
+  padding: 20px;
+}
+/* Top Part */
+
+/* Video Player */
+.video-player-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.video-icon-prev, .video-icon-start, .video-icon-next {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.video-icon-prev:hover, .video-icon-start:hover, .video-icon-next:hover {
+  opacity: 1;
+}
+.video-icon-prev {
+  width: 32px;
+  height: 32px;
+  background-image: url("../img/assets/svg/play-prev.svg");
+}
+.video-icon-start {
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/assets/svg/play.svg");
+  transition: .3s ease;
+}
+.video-icon-next {
+  width: 32px;
+  height: 32px;
+  background-image: url("../img/assets/svg/play-next.svg");
+}
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.music-list-item {
+  cursor: pointer;
+  opacity: 0.8;
+  font-weight: 700;
+  position: relative;
+  padding: 0px 0px 0px 20px;
+  transition: .3s ease;
+}
+.music-list-item:hover {
+  opacity: 1;
+}
+.music-list-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0px;
+  top: -2px;
+  color: white;
+}
+.music-list-item-active::before {
+  color: rgb(197, 179, 88);
+}
+/* Video Player */
+
+
