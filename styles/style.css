@@ -17,6 +17,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: white;
   background-color: gainsboro;
+  background-blend-mode: multiply;
 }
 
 /* Arrows */
@@ -53,6 +54,9 @@ body {
 /* Top Part */
 .top-part {
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
 }
 /* Top Part */
 
@@ -118,4 +122,32 @@ body {
 }
 /* Video Player */
 
+/* Weather */
+
+.weather {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-city {
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.weather-city::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.weather-icon {
+  font-size: 44px;
+}
 
