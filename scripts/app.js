@@ -14,6 +14,10 @@
   let weatherClouds = document.querySelector(".weather-clouds");
   let windSpeed = document.querySelector(".weather-wind-speed");
   let weatherHumidity = document.querySelector(".weather-humidity");
+  // Time
+  let timeTitle = document.querySelector(".time-title");
+  let timeDayMonth = document.querySelector(".time-day-month");
+  let dayTimeMessage = document.querySelector(".daytime-message");
 // State 
 let randomNumber = Math.floor(Math.random() * 15 + 1);
 let audio = new Audio();
@@ -37,8 +41,9 @@ const data = {
   apiKey: "442c6485c22aa2b7df54f85fba75e8b7",
 };
 changeBackgroundImage(data.currentNumber);
-// Video Player Logic
-
+// Data Time 
+let monthAndDay = `${getCurrentDay()}, ${getCurrentMonth()} ${currentDay()}`;
+timeDayMonth.textContent = monthAndDay;
 // Functions
 function changeBackgroundImage(pictureNumber) {
   if(pictureNumber < 10) {
@@ -80,7 +85,6 @@ async function getPosition(cityName) {
     weatherClouds.textContent = weatherClouds.textContent + ` ${data.weather.weatherClouds}`;
     windSpeed.textContent = `Wind Speed: ${data.weather.weatherWindSpeed}`;
     weatherHumidity.textContent = `Humidity: ${data.weather.weatherHumidity}`;
-    console.log(data);
   } catch (error) {
     weatherIcon.classList = "";
     weatherIcon.textContent = `Sorry we do not found anything`;
@@ -90,6 +94,53 @@ async function getPosition(cityName) {
     console.log(data);
   }
 };
+function getCurrentTime() {
+  let currentDate = new Date();
+  let currentHours = currentDate.getHours();
+  let currentMinutes = currentDate.getMinutes();
+  let currentSeconds = currentDate.getSeconds();
+  let result = `${currentHours}:${currentMinutes}:${currentSeconds}`;
+  return result;
+};
+function getCurrentDay() {
+  let weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let currentDate = new Date();
+  let currentDay = weekDays[currentDate.getDay() - 1];
+  return currentDay;
+};
+function getCurrentMonth() {
+  const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let currentMonth = new Date().getMonth();
+  return month[currentMonth];
+};
+function currentDay() {
+  let currentDayNumber = new Date().getDate();
+  return currentDayNumber;
+};
+
+function displayTime() {
+  let currentTime = getCurrentTime();
+  timeTitle.textContent = currentTime;
+};
+displayTime();
+setInterval(() => {
+  displayTime();
+}, 1000);
+function changeWelcomeMessage() {
+  let welcomeArray = ["Good morning", "Good day", "Good evening", "Good night"];
+  let currentHour = new Date().getHours();
+  if(currentHour > 6 && currentHour <= 12) {
+    return welcomeArray[0];
+  } else if (currentHour > 12 && currentHour <= 18) {
+    return welcomeArray[1];
+  } else if (currentHour > 18 && currentHour <= 24) {
+    return welcomeArray[2];
+  } else if (currentHour > 0 && currentHour <= 6) {
+    return welcomeArray[3];
+  };
+};
+let currentDayName = changeWelcomeMessage();
+dayTimeMessage.textContent = currentDayName;
 // Click Event
 leftArrow.addEventListener("click", (event) => {
   if(data.currentNumber !== 1) {

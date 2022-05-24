@@ -151,3 +151,39 @@ body {
   font-size: 44px;
 }
 
+/* Main */
+.main {
+  text-align: center;
+}
+.time-title {
+  font-size: 126px;
+  margin-bottom: 20px;
+}
+.time-day-month {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.main-hello {
+  display: flex;
+  gap: 40px;
+}
+.daytime-message {
+  font-size: 56px;
+  width: 50%;
+  text-align: right;
+}
+.daytime-text {
+  outline: none;
+  border: none;
+  font-size: 56px;
+  background-color: transparent;
+  max-width: 50%;
+  color: white;
+}
+.daytime-text::placeholder {
+  color: white;
+  opacity: 0.6;
+  font-size: 46px;
+}
+/* Main */
+
