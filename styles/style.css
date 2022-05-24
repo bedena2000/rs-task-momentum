@@ -57,6 +57,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  height: 30vh;
 }
 /* Top Part */
 
@@ -154,6 +155,7 @@ body {
 /* Main */
 .main {
   text-align: center;
+  height: 40vh;
 }
 .time-title {
   font-size: 126px;
@@ -187,3 +189,45 @@ body {
 }
 /* Main */
 
+/* Footer */
+
+.footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  height: 30vh; 
+}
+
+.quote-text {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.reaload-logo {
+  width: 32px;
+  height: 32px;
+  background-image: url("../img/assets/svg/reload.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all .3s ease;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.reaload-logo-animation {
+  animation-name: reloadAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+}
+
+.reaload-logo:hover {
+  opacity: 1;
+}
+
+.reaload-logo:active {
+  transform: scale(1.1);
+}

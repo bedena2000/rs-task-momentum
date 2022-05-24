@@ -18,6 +18,10 @@
   let timeTitle = document.querySelector(".time-title");
   let timeDayMonth = document.querySelector(".time-day-month");
   let dayTimeMessage = document.querySelector(".daytime-message");
+  // Text
+  let reloadIcon = document.querySelector(".reaload-logo");
+  let quoteText = document.querySelector(".quote-text");
+  let author = document.querySelector(".author");
 // State 
 let randomNumber = Math.floor(Math.random() * 15 + 1);
 let audio = new Audio();
@@ -39,6 +43,7 @@ const data = {
     weatherHumidity: null
   },
   apiKey: "442c6485c22aa2b7df54f85fba75e8b7",
+  quote: null,
 };
 changeBackgroundImage(data.currentNumber);
 // Data Time 
@@ -141,6 +146,21 @@ function changeWelcomeMessage() {
 };
 let currentDayName = changeWelcomeMessage();
 dayTimeMessage.textContent = currentDayName;
+async function getQuote() {
+  quoteText.textContent = "Loading";
+  author.textContent = "";
+  
+  let randomNumber = Math.floor(Math.random() * 1500);
+  let quote = await fetch("https://type.fit/api/quotes");
+  let result = await quote.json();
+  data.quote = result[randomNumber];
+  console.log(data.quote);
+  changeQuoteUI(data.quote["text"],data.quote["author"]);
+};
+function changeQuoteUI(quote, authorName) {
+  quoteText.textContent = quote;
+  author.textContent = authorName;
+};
 // Click Event
 leftArrow.addEventListener("click", (event) => {
   if(data.currentNumber !== 1) {
@@ -210,7 +230,9 @@ weatherInput.addEventListener("submit", (event) => {
     getPosition(cityName);
   }
 });
+reloadIcon.addEventListener("click", getQuote);
 // All Other Functions Execute
 getPosition("tbilisi");
+getQuote();
  
 
