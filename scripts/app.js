@@ -22,6 +22,7 @@
   let reloadIcon = document.querySelector(".reaload-logo");
   let quoteText = document.querySelector(".quote-text");
   let author = document.querySelector(".author");
+  let dayTimeInput = document.querySelector(".daytime-text");
 // State 
 let randomNumber = Math.floor(Math.random() * 15 + 1);
 let audio = new Audio();
@@ -234,5 +235,10 @@ reloadIcon.addEventListener("click", getQuote);
 // All Other Functions Execute
 getPosition("tbilisi");
 getQuote();
- 
-
+dayTimeInput.addEventListener("input", (event) => {
+  localStorage.setItem("enterName", event.currentTarget.value);
+});
+// Add Local
+let getEnteredName = localStorage.getItem("enterName");
+console.log(getEnteredName);
+dayTimeInput.value = getEnteredName;
